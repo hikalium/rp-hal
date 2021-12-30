@@ -75,6 +75,11 @@ impl<S: State, D: SpiDevice, const DS: u8> Spi<S, D, DS> {
         self.device
     }
 
+    /// Expose underlying device
+    pub fn device<'a>(&'a self) -> &'a D {
+        &self.device
+    }
+
     /// Set baudrate based on peripheral clock
     ///
     /// Typically the peripheral clock is set to 125_000_000
